@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable(false);
             $table->decimal('price', total: 4, places: 2)->unsigned()->nullable(false);
-            $table->string('description')->nullable(false);
+            $table->text('description')->nullable(false);
             $table->string('autor')->nullable(false);
             $table->string('genre')->nullable(false);
             $table->string('publisher')->nullable(false);
