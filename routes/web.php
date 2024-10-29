@@ -16,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class, 'home'])->name('home');
-Route::get('/mangas', [MangaController::class, 'index'])->name('manga');
-Route::get("/mangas/{id}", [MangaController::class, "show"])->name("manga.show");
+Route::get('/mangas', [MangaController::class, 'index'])->name('mangas');
+Route::post('/mangas', [MangaController::class, 'store'])->name('manga.store');
+Route::get('/mangas/create', [MangaController::class, 'create'])->name('mangas.create');
+Route::get('/mangas/{id}', [MangaController::class, 'show'])->name('manga.show');

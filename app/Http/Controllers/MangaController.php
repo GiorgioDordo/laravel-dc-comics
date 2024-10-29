@@ -24,6 +24,7 @@ class MangaController extends Controller
     public function create()
     {
         //
+        return view("mangas.create");
     }
 
     /**
@@ -31,7 +32,19 @@ class MangaController extends Controller
      */
     public function store(Request $request)
     {
+        $formData = $request->all();
         //
+        $manga = new Manga();
+        $manga->title = $formData['title'];
+        $manga->autor = $formData['autor'];
+        $manga->genre = $formData['genre'];
+        $manga->publisher = $formData['publisher'];
+        $manga->price = $formData['price'];
+        $manga->thumbs = $formData['thumbs'];
+        $manga->description = $formData['description'];
+        $manga->save();
+
+        return redirect()->route('manga.show', ['id'=>$manga->id]);
     }
 
     /**

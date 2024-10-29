@@ -11,7 +11,8 @@
             </h1>
         </div>
         <div class="row d-flex justify-content-center">
-            @foreach ($mangas as $id -> $manga)
+            <a href="{{route('mangas.create')}}" class="btn btn-success btn-lg"></a>
+            @foreach ($mangas as $index => $manga)
             <div class="col-3 m-3 p-3 d-flex flex-column align-items-center  border rounded">
                 <div class="manga-cover">
                     <img class="border card-img-top" src="{{$manga["thumbs"]}}" alt="icon">

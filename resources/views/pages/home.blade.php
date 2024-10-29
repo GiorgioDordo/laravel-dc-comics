@@ -3,5 +3,5 @@
 @section("page-title", "Homepage")
 
 @section("main-content")
-<h1>Homepage</h1>
+<a href="{{route('mangas')}}">Mangas</a>
 @endsection
