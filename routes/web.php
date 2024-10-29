@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'home'])->name('home');
 Route::get('/mangas', [MangaController::class, 'index'])->name('manga');
+Route::get("/mangas/{id}", [MangaController::class, "show"])->name("manga.show");

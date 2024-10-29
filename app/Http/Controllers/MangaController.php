@@ -40,6 +40,8 @@ class MangaController extends Controller
     public function show(string $id)
     {
         //
+        $manga = Manga::findOrFail($id);
+        return view("mangas.show", compact("manga"));
     }
 
     /**
