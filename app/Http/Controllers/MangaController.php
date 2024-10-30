@@ -63,6 +63,8 @@ class MangaController extends Controller
     public function edit(string $id)
     {
         //
+        $manga = Manga::findOrFail($id);
+        return view('mangas.edit', compact('manga'));
     }
 
     /**
@@ -71,6 +73,19 @@ class MangaController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $formData = $request->all();
+        $manga = Manga::findOrFail($id);
+
+        $manga->title = $formData["title"];
+        $manga->autor = $formData["autor"];
+        $manga->genre = $formData["genre"];
+        $manga->publisher = $formData["publisher"];
+        $manga->price = $formData["price"];
+        $manga->thumbs = $formData["thumbs"];
+        $manga->description = $formData["description"];
+        $manga->update();
+
+        return redirect()->route("manga.show", [ "id" => $manga->id]);
     }
 
     /**

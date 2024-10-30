@@ -20,3 +20,6 @@ Route::get('/mangas', [MangaController::class, 'index'])->name('mangas');
 Route::post('/mangas', [MangaController::class, 'store'])->name('manga.store');
 Route::get('/mangas/create', [MangaController::class, 'create'])->name('mangas.create');
 Route::get('/mangas/{id}', [MangaController::class, 'show'])->name('manga.show');
+Route::get('/mangas/{id}/edit', [MangaController::class, 'edit'])->name('manga.edit');
+Route::put('/manga/{id}', [MangaController::class, 'update'])->name('manga.update');
+Route::delete('/manga/{id}', [MangaController::class, 'destroy'])->name('manga.deelete');

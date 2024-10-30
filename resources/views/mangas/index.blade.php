@@ -4,14 +4,16 @@
 
 @section("main-content")
 <section class="container">
-    <div class="row">
-        <div class="col-12">
+    <div>
+        <div>
             <h1 class="text-center">
                 MANGAS
             </h1>
         </div>
         <div class="row d-flex justify-content-center">
-            <a href="{{route('mangas.create')}}" class="btn btn-success btn-lg"></a>
+            <div class="d-flex justify-content-center">
+                <a href="{{route('mangas.create')}}" class="btn btn-success rounded-5">ADD NEW MANGA</a>
+            </div>
             @foreach ($mangas as $index => $manga)
             <div class="col-3 m-3 p-3 d-flex flex-column align-items-center  border rounded">
                 <div class="manga-cover">
@@ -28,7 +30,8 @@
                     <p>
                         {{$manga["price"]}} €
                     </p>
-                    <button type="button" class="btn btn-light"><strong>Aggiungi al carrello</strong></button>
+                    <a href='{{route('manga.show', $manga->id)}}' class='btn btn-light'><strong>MORE INFO</strong></a>
+                    <a href='{{route('manga.edit', $manga->id)}}' class='btn btn-light'><strong>EDIT MANGA</strong></a>
                 </div>
             </div>
             @endforeach
