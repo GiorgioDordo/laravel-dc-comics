@@ -32,12 +32,11 @@
                     </p>
                     <a href='{{route('manga.show', $manga->id)}}' class='btn btn-light'><strong>MORE INFO</strong></a>
                     <a href='{{route('manga.edit', $manga->id)}}' class='btn btn-light'><strong>EDIT MANGA</strong></a>
-                    <form action="{{ route("manga.delete", $manga->id) }}" method="POST" class="d-inline" custom-data-name="{{ $manga->name }}">
+                    <form action="{{ route("manga.delete", $manga->id) }}" method="post" class="d-inline">
                         @csrf
                         @method("DELETE")
-                        <button type="submit" class="btn btn-sm btn-warning">
-                            Delete
-                        </button>
+                        <input type="submit" class="btn btn-sm btn-warning" value='DELETE'>
+                    </form>
                 </div>
             </div>
             @endforeach
