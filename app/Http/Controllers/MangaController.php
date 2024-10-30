@@ -76,14 +76,7 @@ class MangaController extends Controller
         $formData = $request->all();
         $manga = Manga::findOrFail($id);
 
-        $manga->title = $formData["title"];
-        $manga->autor = $formData["autor"];
-        $manga->genre = $formData["genre"];
-        $manga->publisher = $formData["publisher"];
-        $manga->price = $formData["price"];
-        $manga->thumbs = $formData["thumbs"];
-        $manga->description = $formData["description"];
-        $manga->update();
+        $manga->update($formData);
 
         return redirect()->route("manga.show", [ "id" => $manga->id]);
     }
