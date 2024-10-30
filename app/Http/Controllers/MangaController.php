@@ -94,5 +94,9 @@ class MangaController extends Controller
     public function destroy(string $id)
     {
         //
+        $manga = Manga::findOrFail($id);
+        $manga->delete();
+
+        return redirect()->route('mangas');
     }
 }
